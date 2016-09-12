@@ -23,12 +23,12 @@ class Api {
         'z_c0' => 'Mi4wQUJCTVctbklGUWtBQUlB...9be45440eac8e91824d42c2',
     );
 
-    static public function request($url_list, $param = array(), $type = "get", $timeout = 5) {
+    public static function request($url_list, $param = array(), $type = "get", $timeout = 5) {
         $result = Api::curlGet($url_list, $param, $type, $timeout);
         return $result;
     }
 
-    static function curlGet($url_list, $method, $param = array()) {
+    public static function curlGet($url_list, $method, $param = array()) {
         //$cookie = self::setCookie(self::$cookie);
         $url_info = $url_list;
         $ch = curl_init($url_info); //初始化会话
@@ -47,7 +47,7 @@ class Api {
         return $result;
     }
 
-    static public function setCookie($cookies) {
+    public static function setCookie($cookies) {
         $str = '';
         foreach ($cookies as $key => $cookie) {
             $str .=$key . $cookie . ';';
